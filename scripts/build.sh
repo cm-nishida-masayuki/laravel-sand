@@ -24,6 +24,10 @@ php composer.phar install
 cp -p .env.example .env
 php artisan key:generate
 
+# Nginx や PHP-FPM の設定ファイルを格納
+cp -p ./scripts/resources/nginx.conf /etc/nginx/nginx.conf
+cp -p ./scripts/resources/www.conf /etc/php-fpm.d/www.conf
+
 # ディレクトリの権限設定
 chown -R :nginx ./storage
 chown -R :nginx ./bootstrap/cache
